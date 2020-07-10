@@ -7,8 +7,26 @@ const {log} = require('./utils')
 
 const app = express()
 
-const todoList = []
+const todoFilePath = './todo.json'
 
+const loadData = () => {
+    let content = fs.readFileSync(todoFilePath, 'utf8')
+    let data = JSON.parse(content)
+    return data
+}
+
+const saveData = (data) => {
+    let s = JSON.stringify(data, null, 2)
+    fs.writeFile(todoFilePath, s, (error) => {
+        if (error !== null) {
+            console.log('error', error)
+        } else {
+            console.log('保存成功')
+        }
+    })
+}
+
+const todoList = loadData()
 
 app.use(express.static('static_files'))
 app.use(bodyParser.json())
@@ -46,6 +64,7 @@ const todoAdd = (form) => {
     }
     form.done = false
     todoList.push(form)
+    saveData(todoList)
     return form
 }
 
@@ -83,6 +102,7 @@ const todoDelete = (id) => {
 app.get('/todo/delete/:id', (request, response) => {
     let id = request.params.id
     let todo = todoDelete(id)
+    saveData(todoList)
     sendJSON(response, todo)
 })
 
@@ -109,6 +129,7 @@ const todoCompleted = (id) => {
 app.get('/todo/completed/:id', (request, response) => {
     let id = request.params.id
     let todo = todoCompleted(id)
+    saveData(todoList)
     sendJSON(response, todo)
 })
 
@@ -136,6 +157,7 @@ app.post('/todo/update/:id', (request, response) => {
     let form = request.body
     let todo = todoUpdate(id, form)
     log('todo', todo)
+    saveData(todoList)
     sendJSON(response, todo)
 })
 
