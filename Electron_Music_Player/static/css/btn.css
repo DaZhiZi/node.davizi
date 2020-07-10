@@ -1,0 +1,101 @@
+.icon-heart:before {
+    content: "\f004";
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    text-decoration: inherit;
+    display: inline-block;
+    speak: none;
+}
+
+.icon-star-empty:before {
+    content: "\f006";
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    text-decoration: inherit;
+    display: inline-block;
+    speak: none;
+}
+
+
+.icon-backward:before {
+    content: "\f04a";
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    text-decoration: inherit;
+    display: inline-block;
+    speak: none;
+}
+
+.icon-pause:before {
+    content: "\f04c";
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    text-decoration: inherit;
+    display: inline-block;
+    speak: none;
+}
+
+.controls ul li:hover {
+    cursor: pointer;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1abc9c), color-stop(100%, #16a085));
+    background-image: -webkit-linear-gradient(top, #1abc9c, #16a085);
+    background-image: -moz-linear-gradient(top, #1abc9c, #16a085);
+    background-image: -o-linear-gradient(top, #1abc9c, #16a085);
+    background-image: linear-gradient(top, #1abc9c, #16a085);
+}
+
+.controls ul li {
+    display: inline-block;
+    margin-right: .17em;
+    padding: .9em;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #7f8c8d), color-stop(100%, #95a5a6));
+    background-image: -webkit-linear-gradient(top, #7f8c8d, #95a5a6);
+    background-image: -moz-linear-gradient(top, #7f8c8d, #95a5a6);
+    background-image: -o-linear-gradient(top, #7f8c8d, #95a5a6);
+    background-image: linear-gradient(top, #7f8c8d, #95a5a6);
+    text-align: center;
+    -webkit-transition-property: all;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-in;
+    -moz-transition-timing-function: ease-in;
+    -o-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+}
+.play {
+    padding: 1.6em !important;
+}
+* {
+    box-sizing: border-box;
+}
+
+.icon-stop:before {
+    content: "\f04d";
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    text-decoration: inherit;
+    display: inline-block;
+    speak: none;
+}
+
+
+.icon-forward:before {
+    content: "\f04e";
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    text-decoration: inherit;
+    display: inline-block;
+    speak: none;
+}
+
+

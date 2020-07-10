@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- 注意 electron 不是网页 所以有的东西和网页不一样 -->
+        <meta charset="utf-8">
+        <!-- title 是软件的标题 -->
+        <title>davizi player</title>
+        <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+        <link href="https://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="static/css/style.css">
+        <link rel="stylesheet" href="static/css/btn.css">
+        <script src="static/utils.js"></script>
+    </head>
+    <body>
+        <section class="container">
+
+            <div id="player">
+                <audio id="id-audio-player" src="audios/WANDS (ワンズ) - 世界が終るまでは… (直到世界尽头) (TV Version).mp3"></audio>
+
+                <div class="caratula">
+
+                    <img class="gua-cover-image" src="static/img/bg.jpg">
+                    <div class="more">
+                        <div class="icon-info"></div>
+                    </div>
+                    <div class="bio">
+                        <h2 class="gua-song-name">Teleradio Donoso</h2>
+                        <p class="gua-song-decription">Teleradio Donoso fue una banda chilena de indie rock y pop rock formada en 2005, Formada inicialmente
+                            por Alex Anwandter (Voz , Guitarra & teclados), Martín del Real (Guitarra & Coros), Juan Pablo Wasaff
+                            (Batería & Coros) y Cristóbal Fredes (bajo) quien fue remplazado por Ignacio Aedo.</p>
+                    </div>
+
+                </div>
+
+                <div class="time outer">
+                    <div class="progress inner">
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                <!-- <span>
+                        移动距离:
+                        <em id="id-em-move">0</em>
+                </span> -->
+
+                <div class="info">
+                    <div class="love">
+                        <div class="icon-heart"></div>
+                        <div class="icon-star-empty"></div>
+                    </div>
+                    <div class="elapsed">2:40</div>
+                    <h2 class="gua-song-name">Teleradio Donoso</h2>
+                    <h3 class="gua-singer">Amar en el campo</h3>
+                </div>
+
+                <div class="controls">
+                    <ul>
+                        <li>
+                            <div class="icon-backward btn gua-control-song" data-offset='-1'></div>
+                        </li>
+                        <li>
+                            <div class="icon-pause btn"></div>
+                        </li>
+                        <li class="play">
+                            <div class="icon-play btn"></div>
+                        </li>
+                        <li>
+                            <div class="icon-forward btn gua-control-song" data-offset='+1'></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <script>
+            window.nodeRequire = require
+            delete window.exports
+            delete window.module
+        </script>
+        <script src="static/lib/jquery.js"></script>
+        <script>
+          console.log('jquery 版本', $.fn.jquery)
+        </script>
+        <script src="static/davizi_player.js"></script>
+    </body>
+</html>

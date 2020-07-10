@@ -1,0 +1,37 @@
+Arguments: 
+  C:\Program Files (x86)\nodejs\node.exe C:\Program Files\nodejs\node_global\node_modules\yarn\bin\yarn.js add electron-packager --save-dev
+
+PATH: 
+  C:\Users\lichao\Desktop\新建文件夹\node_modules\.bin;C:\Program Files\MongoDB\Server\3.4\bin;C:\Go\bin;C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin;C:\Program Files (x86)\nodejs\;C:\Windows\System32;C:\Users\lichao\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\nodejs\node_global;C:\Users\lichao\AppData\Local\GitHubDesktop\bin;C:\Users\lichao\AppData\Local\Microsoft\WindowsApps;C:\Program Files\nodejs\node.exe;C:\Program Files\Bandizip\;C:\Users\lichao\AppData\Local\atom\bin;C:\Users\lichao\go\bin;C:\Users\lichao\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  14.3.0
+
+Platform: 
+  win32 ia32
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\lichao\AppData\Local\Yarn\Cache\v6\npm-ms-2.0.0-5608aeadfc00be6c2901df5f9861788de0d597c8-integrity\node_modules\ms\index.js' -> 'C:\Users\lichao\Desktop\新建文件夹\node_modules\extract-zip\node_modules\ms\index.js'
+
+npm manifest: 
+  {
+    "name": "electron-app",
+    "version": "1.0.0",
+    "main": "main.js",
+    "devDependencies": {
+      "electron": "9.0.4"
+    },
+    "scripts": {
+      "start": "electron .",
+      "pack": "electron-packager . daviziMusicPlayer --win --out ../daviziMusicPlayer --arch=x64 --app-version=1.0.0 --electron-version=9.0.4"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
