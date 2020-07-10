@@ -1,12 +1,12 @@
 [
   {
-    "task": "吃西瓜",
-    "id": 1,
-    "done": true
-  },
-  {
     "task": "准备学习 react",
     "id": 2,
     "done": false
+  },
+  {
+    "task": "看书",
+    "id": 3,
+    "done": true
   }
 ]
