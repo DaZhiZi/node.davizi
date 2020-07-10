@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>博客详情</title>
+    </head>
+    <body>
+        <h1>你好 davizi</h1>
+        <img src="images/doge.gif" alt="">
+        <div>
+            <h1>博客详情</h1>
+        </div>
+        <script>
+            const ajax = (request) => {
+                let r = new XMLHttpRequest()
+                r.open(request.method, request.url, true)
+                if (request.contentType !== undefined) {
+                    r.setRequestHeader('Content-Type', request.contentType)
+                }
+                r.onreadystatechange = () => {
+                    if (r.readyState === 4) {
+                        request.callback(r.response)
+                    }
+                }
+                if (request.method === 'GET') {
+                    r.send()
+                } else {
+                    r.send(request.data)
+                }
+            }
+
+            const __main = () => {
+
+            }
+
+            __main()
+        </script>
+    </body>
+</html>
