@@ -41,10 +41,17 @@ const apiTodoDelete = (id, callback) => {
     return ajax(method, path, data, callback)
 }
 
-const apiTodoCompleted = (id, callback) => {
+const apiTodoCompleted = (id, from, callback) => {
     let method = 'GET'
     let path = '/todo/completed/' + String(id)
     let data = ''
+    return ajax(method, path, data, callback)
+}
+
+const apiTodoUpdate = (id, form, callback) => {
+    let method = 'POST'
+    let path = '/todo/update/' + String(id)
+    let data = form
     return ajax(method, path, data, callback)
 }
 
@@ -68,7 +75,7 @@ const templateTodo = (todo) => {
     let t = `
          <li class="item yy-cell ">
                      <i class="fa  co yy-todo-completed ${d1}"  id="${id}"></i>
-                     <p class="text ${d2}">${task}</p>
+                     <p class="text ${d2} yy-todo-update" id="${id}">${task}</p>
                      <i class="fa fa-trash-o de yy-todo-delete " id="${id}"></i>  
             </li>
     `
@@ -115,7 +122,35 @@ class Action {
         log('id', id)
         apiTodoCompleted(id)
     }
+
+    update(self) {
+        let id = self.id
+        let task = self.innerHTML
+        let form = {
+            task,
+        }
+        log('self', task, id)
+        apiTodoUpdate(id, form)
+    }
 }
+
+
+const bindEdit = () => {
+    e('.yy-todo-container').addEventListener('keydown', event => {
+        let self = event.target
+        if (self.classList.contains('text')) {
+            // event.key 为 Enter 表示按下的是回车键
+            if (event.key === 'Enter') {
+                // log('按了回车键', event)
+                // 取消事件的默认行为, 回车键在编辑标签内容的时候会默认换行
+                event.preventDefault()
+                self.contentEditable = false
+                Action.new().update(self)
+            }
+        }
+    })
+}
+
 
 const bindEventTodo = () => {
     bindEvent(e('body'), 'click', event => {
@@ -134,19 +169,25 @@ const bindEventTodo = () => {
             apiAction.completed(self)
         }
 
-        loadTodoAll()
+        if (has('text')) {
+            self.contentEditable = true
+            self.focus()
+        } else {
+            loadTodoAll()
+        }
     })
+
 }
 
 const bindEvents = () => {
     bindEventTodo()
+    bindEdit()
 }
 
 const loadTodoAll = async () => {
     // 用同步的思维写异步程序
     let l2 = await apiTodoAll()
-    log('l2', l2)
-    // let d1 = await apiTodoDelete(2)
+
     loadTodos(l2)
 }
 

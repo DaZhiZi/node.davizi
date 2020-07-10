@@ -98,14 +98,10 @@ const todoCompleted = (id) => {
         }
     }
     if (index > -1) {
-        // 找到了, 用 splice 函数来删除
-        // splice 函数返回的是包含被删除元素的数组
-        // 所以要用 [0] 取出数据
         todoList[index].done = !todoList[index].done
         let t = todoList[index]
         return t
     } else {
-        // 没找到
         return {}
     }
 }
@@ -113,6 +109,33 @@ const todoCompleted = (id) => {
 app.get('/todo/completed/:id', (request, response) => {
     let id = request.params.id
     let todo = todoCompleted(id)
+    sendJSON(response, todo)
+})
+
+const todoUpdate = (id, form) => {
+    id = Number(id)
+    let index = -1
+    for (let i = 0; i < todoList.length; i++) {
+        let t = todoList[i]
+        if (t.id === id) {
+            index = i
+            break
+        }
+    }
+    if (index > -1) {
+        todoList[index].task =  form.task
+        let t = todoList[index]
+        return t
+    } else {
+        return {}
+    }
+}
+
+app.post('/todo/update/:id', (request, response) => {
+    let id = request.params.id
+    let form = request.body
+    let todo = todoUpdate(id, form)
+    log('todo', todo)
     sendJSON(response, todo)
 })
 
