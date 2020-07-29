@@ -7,7 +7,6 @@ class ModelBlog {
         this.title = form.title || ''
         this.author = form.author || ''
         this.content = form.content || ''
-        // 生成一个 unix 时间，unix 时间是什么，上课会说
         this.created_time = Math.floor(new Date() / 1000)
     }
 }
